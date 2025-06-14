@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Para Yazmin 💖</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+    Tu navegador no soporta audio.
+  </audio>
+
+  <div class="Love__You">
+    <h1>Para el amor de mi vida, Yazmin ❤️</h1>
+    <p>
+      Si pudiera elegir un lugar seguro, sería a tu lado.<br>
+      Cuanto más tiempo estoy contigo, más te amo.<br>
+      Este texto no es solo un ejemplo, es un pedacito de lo que siento por ti.<br>
+      — ¡Te amo!
+    </p>
+
+    <img src="https://i.imgur.com/v7QAdAa.png" alt="Árbol de corazones" width="250">
+
+    <p>Desde que comenzamos a hablar el 17 de mayo de 2025 a las 10:33 AM han pasado...</p>
+    <div id="contador" style="font-weight:bold;"></div>
+
+    <br>
+    <button onclick="mostrarMensaje()">💘 Haz clic si me amas 💘</button>
+    <p id="respuesta" style="margin-top: 10px;"></p>
+  </div>
+
+  <!-- Lluvia de corazones -->
+  <div class="corazones" id="corazones"></div>
+
+  <script>
+    const inicio = new Date("2025-05-17T10:33:00");
+    const contador = document.getElementById("contador");
+
+    function actualizarTiempo() {
+      const ahora = new Date();
+      const dif = ahora - inicio;
+
+      const dias = Math.floor(dif / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((dif / (1000 * 60 * 60)) % 24);
+      const minutos = Math.floor((dif / (1000 * 60)) % 60);
+      const segundos = Math.floor((dif / 1000) % 60);
+
+      contador.textContent = `${dias} días ${horas} horas ${minutos} minutos ${segundos} segundos`;
+    }
+
+    setInterval(actualizarTiempo, 1000);
+    actualizarTiempo();
+
+    function mostrarMensaje() {
+      document.getElementById("respuesta").innerHTML = "¡Yo también te amo, Yazmin! 💖 Gracias por estar en mi vida.";
+      lanzarCorazones();
+    }
+
+    function lanzarCorazones() {
+      const container = document.getElementById("corazones");
+
+      for (let i = 0; i < 30; i++) {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
+        container.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 5000);
+      }
+    }
+  </script>
+</body>
+</html>
